@@ -23,7 +23,7 @@ const app=express()
 const server=http.createServer(app)
 const io=socketio(server,{
     cors:{
-        origin:["https://tiny-smakager-5ed5c5.netlify.app/"],
+        origin:["https://localstorage:5173"],
         methods:["GET","POST"],
         credentials:true,
     }
