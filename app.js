@@ -23,7 +23,7 @@ const app=express()
 const server=http.createServer(app)
 const io=socketio(server,{
     cors:{
-        origin:["https://joyful-syrniki-99ec17.netlify.app/"],
+        origin:["https://tiny-smakager-5ed5c5.netlify.app/"],
         methods:["GET","POST"],
         credentials:true,
     }
