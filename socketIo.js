@@ -44,7 +44,7 @@ const socketIo=(io)=>{
       //triggered when user sends a new message
       socket.on("new message",(message)=>{
         //broadcast message to all other users in the room
-        socket.io(message.groupId).emit("message received",message)
+        socket.to(message.groupId).emit("message received",message)
       })
       //!END: new message handler
 
@@ -67,13 +67,13 @@ const socketIo=(io)=>{
       //triggered when user starts typing
       socket.on("typing",({groupId,username})=>{
         //broadcast typing status to other users in the room
-        socket.to(groupId).emit("user typing",{username});
+        io.to(groupId).emit("user typing",{username});
       })
 
       //triggered when user stops typing
-      socket.on("stop typing", (groupId) => {
+      socket.on("stop typing", ({groupId,username}) => {
         //broadcast typing status to other users in the room
-        socket.to(groupId).emit("user stop typing", { username:user?.username });
+        io.to(groupId).emit("user stop typing", { username:user?.username });
       });
       //!END: typing indicator handler
     })

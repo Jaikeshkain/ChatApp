@@ -1,4 +1,3 @@
-require("dotenv").config();
 var mongoose = require("mongoose");
 var pool = () => {
   mongoose.Promise = global.Promise;
